@@ -9,28 +9,19 @@
 <title>Финансы</title>
 <style>
   :root{
-    --bg:#0b0b0f;
-    --bg2:#141420;
-    --card:#1c1c28;
-    --line:#26263a;
-    --text:#f5f5fa;
-    --muted:#7c7c92;
-    --green:#22d17a;
-    --red:#ff5a5f;
-    --blue:#4b8dff;
+    --bg:#0b0b0f; --bg2:#141420; --card:#1c1c28; --line:#26263a;
+    --text:#f5f5fa; --muted:#7c7c92;
+    --green:#22d17a; --red:#ff5a5f;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
   body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;
-    background:var(--bg);
-    color:var(--text);
+    background:var(--bg); color:var(--text);
     padding-top:env(safe-area-inset-top);
     padding-bottom:calc(78px + env(safe-area-inset-bottom));
   }
-
-  /* ВЕРХНИЙ БЛОК ГЛАВНОГО ЭКРАНА */
   .top{padding:16px 20px 20px}
   .month-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
   .month-row .title{font-size:15px;font-weight:600;letter-spacing:.2px;text-transform:capitalize}
@@ -50,34 +41,26 @@
   .in-out .val{color:var(--muted)}
   .in-out .green .val{color:var(--green);font-weight:600}
   .in-out .red .val{color:var(--red);font-weight:600}
-
-  /* СПИСОК ОПЕРАЦИЙ */
   .daygroup{padding:0 20px;margin-bottom:4px}
-  .daygroup .dayhead{
-    font-size:12px;color:var(--muted);letter-spacing:.4px;
-    margin:16px 0 6px;font-weight:500;
-  }
+  .daygroup .dayhead{font-size:12px;color:var(--muted);letter-spacing:.4px;margin:16px 0 6px;font-weight:500}
   .op{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
   .op:last-child{border-bottom:0}
   .op .ic{
     width:38px;height:38px;border-radius:50%;background:var(--bg2);
-    display:flex;align-items:center;justify-content:center;
-    font-size:17px;flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;font-size:17px;flex:0 0 auto;
   }
   .op .mid{flex:1;min-width:0}
   .op .mid .n{font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .op .mid .n b{color:#fff;font-weight:700}
   .op .mid .c{font-size:12px;color:var(--muted);margin-top:2px}
   .op .amt{font-size:15px;font-weight:600;text-align:right;white-space:nowrap}
   .op .amt.red{color:var(--red)}
   .op .amt.green{color:var(--green)}
   .empty{color:var(--muted);text-align:center;padding:48px 20px;font-size:14px;line-height:1.6}
-
-  /* ТАБ-БАР СНИЗУ */
   .tabbar{
     position:fixed;left:0;right:0;bottom:0;
     background:rgba(11,11,15,.94);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
     border-top:1px solid var(--line);
     display:flex;justify-content:space-around;align-items:flex-end;
     padding:8px 0 calc(6px + env(safe-area-inset-bottom));
@@ -86,7 +69,7 @@
   .tabbar .tb{
     flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
     padding:4px 0;cursor:pointer;color:var(--muted);font-size:10px;
-    transition:color .15s;background:none;border:0;font-family:inherit;
+    background:none;border:0;font-family:inherit;
   }
   .tabbar .tb svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .tabbar .tb.active{color:var(--text)}
@@ -95,11 +78,8 @@
     width:50px;height:50px;border-radius:50%;background:var(--green);
     display:flex;align-items:center;justify-content:center;
     font-size:28px;color:#04120a;font-weight:300;
-    box-shadow:0 6px 20px rgba(34,209,122,.4);
-    margin-top:-16px;line-height:1;
+    box-shadow:0 6px 20px rgba(34,209,122,.4);margin-top:-16px;line-height:1;
   }
-
-  /* ЭКРАНЫ */
   .screen{display:none;padding:16px 20px 20px}
   .screen.on{display:block}
   .screen h2{font-size:24px;margin:4px 0 18px;font-weight:700;letter-spacing:-.5px}
@@ -108,8 +88,7 @@
   .muted{color:var(--muted);font-size:13px}
   button{
     background:var(--green);color:#04120a;border:0;border-radius:12px;
-    padding:12px 16px;font-size:15px;font-weight:600;cursor:pointer;
-    font-family:inherit;
+    padding:12px 16px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;
   }
   button.ghost{background:var(--bg2);color:var(--text)}
   button.danger{background:transparent;color:var(--red)}
@@ -129,25 +108,17 @@
   .bar>div{height:100%;background:var(--green);transition:width .3s}
   .bar.warn>div{background:#fbbf24}
   .bar.over>div{background:var(--red)}
-
-  /* МОДАЛКИ */
-  .modal{
-    position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;
-    align-items:flex-end;justify-content:center;z-index:100;
-  }
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:flex-end;justify-content:center;z-index:100}
   .modal.show{display:flex}
   .sheet{
-    background:var(--card);width:100%;max-width:520px;
-    border-radius:20px 20px 0 0;
-    padding:20px 16px calc(20px + env(safe-area-inset-bottom));
-    max-height:92vh;overflow:auto;
+    background:var(--card);width:100%;max-width:520px;border-radius:20px 20px 0 0;
+    padding:20px 16px calc(20px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto;
   }
   .sheet h2{margin:0 0 16px;font-size:18px}
 </style>
 </head>
 <body>
 
-<!-- ГЛАВНЫЙ -->
 <div id="screen-home" class="screen on" style="padding:0">
   <div class="top">
     <div class="month-row">
@@ -164,7 +135,6 @@
   <div id="opsByDay"></div>
 </div>
 
-<!-- АНАЛИТИКА -->
 <div id="screen-stats" class="screen">
   <h2>Аналитика</h2>
   <div class="card">
@@ -180,7 +150,6 @@
   </div>
 </div>
 
-<!-- БЮДЖЕТ -->
 <div id="screen-budget" class="screen">
   <h2>Бюджет</h2>
   <div class="card">
@@ -192,7 +161,6 @@
   </div>
 </div>
 
-<!-- ЕЩЁ -->
 <div id="screen-more" class="screen">
   <h2>Ещё</h2>
   <div class="card">
@@ -215,7 +183,6 @@
   </div>
 </div>
 
-<!-- ТАБ-БАР -->
 <div class="tabbar">
   <button class="tb active" data-tab="home" onclick="switchTab('home')">
     <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
@@ -238,7 +205,6 @@
   </button>
 </div>
 
-<!-- МОДАЛКА ОПЕРАЦИИ -->
 <div class="modal" id="opModal">
   <div class="sheet">
     <h2 id="opTitle">Новая операция</h2>
@@ -264,7 +230,6 @@
   </div>
 </div>
 
-<!-- МОДАЛКА КАТЕГОРИИ -->
 <div class="modal" id="catModal">
   <div class="sheet">
     <h2>Новая категория</h2>
@@ -281,7 +246,6 @@
   </div>
 </div>
 
-<!-- МОДАЛКА СЧЁТА -->
 <div class="modal" id="accountModal">
   <div class="sheet">
     <h2>Новый счёт</h2>
@@ -296,7 +260,6 @@
   </div>
 </div>
 
-<!-- МОДАЛКА БЮДЖЕТА -->
 <div class="modal" id="budgetModal">
   <div class="sheet">
     <h2>Лимиты бюджета</h2>
@@ -350,6 +313,9 @@ function todayISO(){ return new Date().toISOString().slice(0,10); }
 function getAccount(id){ var r = DB.accounts.filter(function(a){return a.id===id;}); return r[0] || {name:'—'}; }
 function getCat(id){ var r = DB.categories.filter(function(c){return c.id===id;}); return r[0] || {name:'—',icon:'📁',type:'expense'}; }
 
+/* Проверяет: нужно ли комментарий к этой категории считать подкатегорией */
+function isSplitCat(cat){ return cat && cat.name === 'Прочее'; }
+
 var curMonth = todayISO().slice(0,7);
 function shiftMonth(delta){
   var p = curMonth.split('-');
@@ -371,6 +337,26 @@ function dayLabelRu(iso){
   return d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',weekday:'short'});
 }
 
+/* ===== КЛЮЧ ГРУППИРОВКИ ===== */
+/* Обычно key = catId. Для "Прочее" с комментарием key = catId + "::" + lower(note) */
+function groupKey(o){
+  var c = getCat(o.catId);
+  if(isSplitCat(c) && o.note && o.note.trim()){
+    return o.catId + '::' + o.note.trim().toLowerCase();
+  }
+  return o.catId;
+}
+function labelFromKey(key){
+  if(key.indexOf('::') >= 0){
+    var parts = key.split('::');
+    var c = getCat(parts[0]);
+    return { icon: c.icon, name: c.name + ' · ' + parts[1] };
+  }
+  var c = getCat(key);
+  return { icon: c.icon, name: c.name };
+}
+
+/* ===== ГЛАВНАЯ ===== */
 function renderHome(){
   $('#monthLabel').textContent = monthLabelRu(curMonth);
   var mOps = DB.operations.filter(function(o){ return monthKey(o.date) === curMonth; });
@@ -404,9 +390,16 @@ function renderHome(){
       var acc = getAccount(o.accountId).name;
       var sign = o.type === 'income' ? '+' : '−';
       var cls = o.type === 'income' ? 'green' : 'red';
+      /* Если это "Прочее" с комментарием — показываем "Прочее · маме" жирным */
+      var title;
+      if(isSplitCat(c) && o.note && o.note.trim()){
+        title = c.name + ' · <b>' + escapeHtml(o.note) + '</b>';
+      } else {
+        title = o.note ? escapeHtml(o.note) : c.name;
+      }
       html += '<div class="op" onclick="openOpEdit(\'' + o.id + '\')">'
         + '<div class="ic">' + c.icon + '</div>'
-        + '<div class="mid"><div class="n">' + (o.note || c.name) + '</div>'
+        + '<div class="mid"><div class="n">' + title + '</div>'
         + '<div class="c">' + c.name + ' · ' + acc + '</div></div>'
         + '<div class="amt ' + cls + '">' + sign + fmt(o.amount) + '</div>'
         + '</div>';
@@ -416,6 +409,13 @@ function renderHome(){
   $('#opsByDay').innerHTML = html;
 }
 
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, function(m){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+  });
+}
+
+/* ===== ТАБЫ ===== */
 function switchTab(name){
   document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
   document.querySelectorAll('.tabbar .tb').forEach(function(t){t.classList.remove('active');});
@@ -429,12 +429,19 @@ function switchTab(name){
   if(name === 'more') renderMore();
 }
 
+/* ===== АНАЛИТИКА ===== */
 function renderStats(){
   var ops = DB.operations.filter(function(o){ return o.type==='expense' && monthKey(o.date)===curMonth; });
-  var byCat = {};
-  ops.forEach(function(o){ byCat[o.catId] = (byCat[o.catId]||0) + o.amount; });
-  var entries = Object.keys(byCat).map(function(k){return [k, byCat[k]];}).sort(function(a,b){return b[1]-a[1];});
-  var total = entries.reduce(function(s,e){return s+e[1];},0);
+  /* Группировка с учётом подкатегорий у "Прочее" */
+  var byGroup = {};
+  ops.forEach(function(o){
+    var k = groupKey(o);
+    byGroup[k] = (byGroup[k] || 0) + o.amount;
+  });
+  var entries = Object.keys(byGroup).map(function(k){ return [k, byGroup[k]]; })
+    .sort(function(a,b){ return b[1] - a[1]; });
+  var total = entries.reduce(function(s,e){ return s + e[1]; }, 0);
+
   var canvas = $('#pie'); var ctx = canvas.getContext('2d');
   ctx.clearRect(0,0,160,160);
   var colors = ['#22d17a','#4b8dff','#fbbf24','#ff5a5f','#a78bfa','#f472b6','#34d399','#fb923c','#22d3ee','#94a3b8'];
@@ -452,24 +459,28 @@ function renderStats(){
     ctx.beginPath(); ctx.arc(80,80,38,0,Math.PI*2); ctx.fill();
     ctx.globalCompositeOperation = 'source-over';
   }
+
   $('#pieLegend').innerHTML = entries.length ? entries.map(function(e,i){
-    var c = getCat(e[0]);
+    var lb = labelFromKey(e[0]);
     return '<div><span class="dotc" style="background:' + colors[i%colors.length] + '"></span>'
-      + c.icon + ' ' + c.name + ' — ' + fmt(e[1]) + ' (' + (e[1]/total*100).toFixed(0) + '%)</div>';
+      + lb.icon + ' ' + escapeHtml(lb.name) + ' — ' + fmt(e[1])
+      + ' (' + (e[1]/total*100).toFixed(0) + '%)</div>';
   }).join('') : '<div class="muted">Нет расходов в этом месяце</div>';
 
-  var inc = DB.operations.filter(function(o){return o.type==='income' && monthKey(o.date)===curMonth;}).reduce(function(s,o){return s+o.amount;},0);
+  var inc = DB.operations.filter(function(o){return o.type==='income' && monthKey(o.date)===curMonth;})
+    .reduce(function(s,o){return s+o.amount;},0);
   var avg = ops.length ? total/ops.length : 0;
-  var top = entries[0] ? getCat(entries[0][0]).name : '—';
+  var top = entries[0] ? labelFromKey(entries[0][0]).name : '—';
   $('#summary').innerHTML =
     '💸 Расходов: <b>' + fmt(total) + '</b><br>'
   + '💰 Доходов: <b>' + fmt(inc) + '</b><br>'
   + '📊 Остаток: <b>' + fmt(inc-total) + '</b><br>'
   + '🧾 Средний чек: <b>' + fmt(avg) + '</b><br>'
-  + '🥇 Топ: <b>' + top + '</b><br>'
+  + '🥇 Топ: <b>' + escapeHtml(top) + '</b><br>'
   + '📅 Операций: <b>' + ops.length + '</b>';
 }
 
+/* ===== БЮДЖЕТ ===== */
 function renderBudget(){
   var spent = {};
   DB.operations.filter(function(o){return o.type==='expense' && monthKey(o.date)===curMonth;})
@@ -487,9 +498,10 @@ function renderBudget(){
     return '<div style="margin:14px 0">'
       + '<div class="row"><span>' + c.icon + ' ' + c.name + '</span>'
       + '<span class="muted">' + fmt(used) + ' / ' + fmt(limit) + '</span></div>'
-      + '<div class="bar ' + cls + '"><div style="width:' + pct + '%"></div></div>'
-      + '</div>';
-  }).join('');
+      + '<div class="bar ' + cls + '"><div style="width:' + pct + '%"></div></('hidden');
+div>'
+         + '</div>';
+ fill  }).join('');
 }
 function openBudgetEdit(){
   $('#budgetEditList').innerHTML = DB.categories.filter(function(c){return c.type==='expense';}).map(function(c){
@@ -507,6 +519,7 @@ function saveBudget(){
   save(); closeModal('budgetModal'); renderBudget();
 }
 
+/* ===== ЕЩЁ ===== */
 function accountBalance(accId){
   var acc = DB.accounts.filter(function(a){return a.id===accId;})[0];
   if(!acc) return 0;
@@ -543,6 +556,7 @@ function saveAccount(){
   save(); closeModal('accountModal'); renderMore();
 }
 
+/* ===== ОПЕРАЦИИ ===== */
 function openOpEdit(id){
   $('#opType').value='expense';
   $('#opAmount').value='';
@@ -561,8 +575,7 @@ function openOpEdit(id){
     $('#opDate').value = o.date;
     $('#opNote').value = o.note||'';
     $('#opTitle').textContent = 'Операция';
-    $('#opDelete').classList.remove('hidden');
-    fillSelects();
+    $('#opDelete').classList.removeSelects();
     $('#opCat').value = o.catId;
     $('#opAccount').value = o.accountId;
   }
