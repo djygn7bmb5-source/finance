@@ -27,35 +27,22 @@
     background:var(--bg);
     color:var(--text);
     padding-top:env(safe-area-inset-top);
-    padding-bottom:calc(70px + env(safe-area-inset-bottom));
+    padding-bottom:calc(78px + env(safe-area-inset-bottom));
   }
 
-  /* ===== ВЕРХНИЙ БЛОК ===== */
-  .top{
-    padding:14px 20px 22px;
-    background:var(--bg);
-  }
-  .month-row{
-    display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:18px;
-  }
-  .month-row .title{
-    font-size:15px;font-weight:600;letter-spacing:.2px;
-  }
+  /* ВЕРХНИЙ БЛОК ГЛАВНОГО ЭКРАНА */
+  .top{padding:16px 20px 20px}
+  .month-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .month-row .title{font-size:15px;font-weight:600;letter-spacing:.2px;text-transform:capitalize}
   .month-row .arrow{
-    width:32px;height:32px;border-radius:50%;background:var(--bg2);
+    width:34px;height:34px;border-radius:50%;background:var(--bg2);
     display:flex;align-items:center;justify-content:center;
-    color:var(--muted);font-size:18px;cursor:pointer;user-select:none;
+    color:var(--muted);font-size:20px;cursor:pointer;user-select:none;
   }
-  .big-sum{
-    font-size:44px;font-weight:700;letter-spacing:-1.5px;
-    line-height:1;margin-bottom:16px;
-  }
-  .big-sum .cur{font-size:28px;color:var(--muted);font-weight:600;margin-left:4px}
+  .big-sum{font-size:44px;font-weight:700;letter-spacing:-1.5px;line-height:1;margin-bottom:18px}
+  .big-sum .cur{font-size:26px;color:var(--muted);font-weight:600;margin-left:4px}
   .big-sum.neg{color:var(--red)}
-  .in-out{
-    display:flex;gap:24px;font-size:14px;
-  }
+  .in-out{display:flex;gap:26px;font-size:14px}
   .in-out .item{display:flex;align-items:center;gap:6px}
   .in-out .dot{width:8px;height:8px;border-radius:50%}
   .in-out .green .dot{background:var(--green)}
@@ -64,17 +51,13 @@
   .in-out .green .val{color:var(--green);font-weight:600}
   .in-out .red .val{color:var(--red);font-weight:600}
 
-  /* ===== СПИСОК ===== */
-  .daygroup{padding:0 20px;margin-bottom:8px}
+  /* СПИСОК ОПЕРАЦИЙ */
+  .daygroup{padding:0 20px;margin-bottom:4px}
   .daygroup .dayhead{
-    font-size:12px;color:var(--muted);text-transform:uppercase;
-    letter-spacing:.5px;margin:14px 0 6px;
+    font-size:12px;color:var(--muted);letter-spacing:.4px;
+    margin:16px 0 6px;font-weight:500;
   }
-  .op{
-    display:flex;align-items:center;gap:12px;
-    padding:12px 0;border-bottom:1px solid var(--line);
-    cursor:pointer;
-  }
+  .op{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
   .op:last-child{border-bottom:0}
   .op .ic{
     width:38px;height:38px;border-radius:50%;background:var(--bg2);
@@ -87,44 +70,39 @@
   .op .amt{font-size:15px;font-weight:600;text-align:right;white-space:nowrap}
   .op .amt.red{color:var(--red)}
   .op .amt.green{color:var(--green)}
-  .empty{
-    color:var(--muted);text-align:center;padding:40px 20px;font-size:14px;
-  }
+  .empty{color:var(--muted);text-align:center;padding:48px 20px;font-size:14px;line-height:1.6}
 
-  /* ===== ТАБ-БАР СНИЗУ ===== */
+  /* ТАБ-БАР СНИЗУ */
   .tabbar{
     position:fixed;left:0;right:0;bottom:0;
-    background:rgba(11,11,15,.92);
+    background:rgba(11,11,15,.94);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
     border-top:1px solid var(--line);
-    display:flex;justify-content:space-around;align-items:center;
-    padding:6px 0 calc(6px + env(safe-area-inset-bottom));
+    display:flex;justify-content:space-around;align-items:flex-end;
+    padding:8px 0 calc(6px + env(safe-area-inset-bottom));
     z-index:50;
   }
   .tabbar .tb{
-    flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
-    padding:6px 0;cursor:pointer;color:var(--muted);font-size:10px;
-    transition:color .15s;
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:4px 0;cursor:pointer;color:var(--muted);font-size:10px;
+    transition:color .15s;background:none;border:0;font-family:inherit;
   }
-  .tabbar .tb svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8}
+  .tabbar .tb svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .tabbar .tb.active{color:var(--text)}
-  .tabbar .tb.add{
-    color:var(--bg);flex:0 0 auto;
-  }
+  .tabbar .tb.add{flex:0 0 auto}
   .tabbar .tb.add .circle{
-    width:48px;height:48px;border-radius:50%;background:var(--green);
+    width:50px;height:50px;border-radius:50%;background:var(--green);
     display:flex;align-items:center;justify-content:center;
-    font-size:26px;color:#04120a;font-weight:300;
-    box-shadow:0 6px 20px rgba(34,209,122,.35);
-    margin-top:-14px;line-height:1;
+    font-size:28px;color:#04120a;font-weight:300;
+    box-shadow:0 6px 20px rgba(34,209,122,.4);
+    margin-top:-16px;line-height:1;
   }
-  .tabbar .tb.add span{color:var(--green);font-size:10px;margin-top:2px}
 
-  /* ===== ЭКРАНЫ (кроме главного) ===== */
+  /* ЭКРАНЫ */
   .screen{display:none;padding:16px 20px 20px}
   .screen.on{display:block}
-  .screen h2{font-size:22px;margin:0 0 16px;font-weight:700}
+  .screen h2{font-size:24px;margin:4px 0 18px;font-weight:700;letter-spacing:-.5px}
   .card{background:var(--card);border-radius:16px;padding:14px;margin:10px 0}
   .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
   .muted{color:var(--muted);font-size:13px}
@@ -152,7 +130,7 @@
   .bar.warn>div{background:#fbbf24}
   .bar.over>div{background:var(--red)}
 
-  /* ===== МОДАЛКИ ===== */
+  /* МОДАЛКИ */
   .modal{
     position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;
     align-items:flex-end;justify-content:center;z-index:100;
@@ -169,7 +147,7 @@
 </head>
 <body>
 
-<!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+<!-- ГЛАВНЫЙ -->
 <div id="screen-home" class="screen on" style="padding:0">
   <div class="top">
     <div class="month-row">
@@ -179,38 +157,30 @@
     </div>
     <div class="big-sum" id="bigSum">0<span class="cur">₽</span></div>
     <div class="in-out">
-      <div class="item green">
-        <span class="dot"></span>
-        <span>Доходы</span>
-        <span class="val" id="inSum">0 ₽</span>
-      </div>
-      <div class="item red">
-        <span class="dot"></span>
-        <span>Расходы</span>
-        <span class="val" id="outSum">0 ₽</span>
-      </div>
+      <div class="item green"><span class="dot"></span><span>Доходы</span><span class="val" id="inSum">0 ₽</span></div>
+      <div class="item red"><span class="dot"></span><span>Расходы</span><span class="val" id="outSum">0 ₽</span></div>
     </div>
   </div>
   <div id="opsByDay"></div>
 </div>
 
-<!-- ===== ЭКРАН: АНАЛИТИКА ===== -->
+<!-- АНАЛИТИКА -->
 <div id="screen-stats" class="screen">
   <h2>Аналитика</h2>
   <div class="card">
-    <div class="muted" style="margin-bottom:10px">Расходы по категориям за месяц</div>
+    <div class="muted" style="margin-bottom:10px">Расходы по категориям</div>
     <div class="chart-wrap">
       <canvas id="pie" width="160" height="160"></canvas>
       <div class="legend" id="pieLegend"></div>
     </div>
   </div>
   <div class="card">
-    <div class="muted" style="margin-bottom:8px">Сводка</div>
-    <div id="summary" style="font-size:14px;line-height:1.8"></div>
+    <div class="muted" style="margin-bottom:8px">Сводка месяца</div>
+    <div id="summary" style="font-size:14px;line-height:1.9"></div>
   </div>
 </div>
 
-<!-- ===== ЭКРАН: БЮДЖЕТ ===== -->
+<!-- БЮДЖЕТ -->
 <div id="screen-budget" class="screen">
   <h2>Бюджет</h2>
   <div class="card">
@@ -222,7 +192,7 @@
   </div>
 </div>
 
-<!-- ===== ЭКРАН: ЕЩЁ (настройки) ===== -->
+<!-- ЕЩЁ -->
 <div id="screen-more" class="screen">
   <h2>Ещё</h2>
   <div class="card">
@@ -238,37 +208,37 @@
   <div class="card">
     <b>Данные</b>
     <div class="muted" style="margin:8px 0">Хранится только на этом устройстве в Safari.</div>
-    <button class="ghost" style="width:100%;margin-bottom:8px" onclick="exportData()">📤 Экспорт (JSON)</button>
-    <button class="ghost" style="width:100%;margin-bottom:8px" onclick="document.getElementById('importFile').click()">📥 Импорт</button>
+    <button class="ghost" style="width:100%;margin-bottom:8px" onclick="exportData()">Экспорт (JSON)</button>
+    <button class="ghost" style="width:100%;margin-bottom:8px" onclick="document.getElementById('importFile').click()">Импорт</button>
     <input type="file" id="importFile" accept=".json" class="hidden" onchange="importData(event)">
     <button class="danger" style="width:100%;margin-top:8px;border:1px solid var(--line)" onclick="if(confirm('Удалить ВСЕ данные?')){localStorage.clear();location.reload()}">Удалить все данные</button>
   </div>
 </div>
 
-<!-- ===== ТАБ-БАР ===== -->
+<!-- ТАБ-БАР -->
 <div class="tabbar">
-  <div class="tb active" data-tab="home" onclick="switchTab('home')">
+  <button class="tb active" data-tab="home" onclick="switchTab('home')">
     <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>
     <span>Главная</span>
-  </div>
-  <div class="tb" data-tab="stats" onclick="switchTab('stats')">
+  </button>
+  <button class="tb" data-tab="stats" onclick="switchTab('stats')">
     <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
     <span>Анализ</span>
-  </div>
-  <div class="tb add" onclick="openOpEdit()">
+  </button>
+  <button class="tb add" onclick="openOpEdit()">
     <div class="circle">+</div>
-  </div>
-  <div class="tb" data-tab="budget" onclick="switchTab('budget')">
+  </button>
+  <button class="tb" data-tab="budget" onclick="switchTab('budget')">
     <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h2"/></svg>
     <span>Бюджет</span>
-  </div>
-  <div class="tb" data-tab="more" onclick="switchTab('more')">
+  </button>
+  <button class="tb" data-tab="more" onclick="switchTab('more')">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
     <span>Ещё</span>
-  </div>
+  </button>
 </div>
 
-<!-- ===== МОДАЛКА ОПЕРАЦИИ ===== -->
+<!-- МОДАЛКА ОПЕРАЦИИ -->
 <div class="modal" id="opModal">
   <div class="sheet">
     <h2 id="opTitle">Новая операция</h2>
@@ -294,7 +264,7 @@
   </div>
 </div>
 
-<!-- ===== МОДАЛКА КАТЕГОРИИ ===== -->
+<!-- МОДАЛКА КАТЕГОРИИ -->
 <div class="modal" id="catModal">
   <div class="sheet">
     <h2>Новая категория</h2>
@@ -311,7 +281,7 @@
   </div>
 </div>
 
-<!-- ===== МОДАЛКА СЧЁТА ===== -->
+<!-- МОДАЛКА СЧЁТА -->
 <div class="modal" id="accountModal">
   <div class="sheet">
     <h2>Новый счёт</h2>
@@ -326,7 +296,7 @@
   </div>
 </div>
 
-<!-- ===== МОДАЛКА БЮДЖЕТА ===== -->
+<!-- МОДАЛКА БЮДЖЕТА -->
 <div class="modal" id="budgetModal">
   <div class="sheet">
     <h2>Лимиты бюджета</h2>
@@ -371,52 +341,50 @@ function load(){
 var DB = load();
 function save(){ localStorage.setItem('finance_v1', JSON.stringify(DB)); }
 
-var $ = function(s){ return document.querySelector(s); };
+function $(s){ return document.querySelector(s); }
 function fmt(n){
   return (Math.round(n*100)/100).toLocaleString('ru-RU',{minimumFractionDigits:0,maximumFractionDigits:2}) + ' ' + DB.currency;
 }
 function monthKey(d){ return d.slice(0,7); }
 function todayISO(){ return new Date().toISOString().slice(0,10); }
-function getAccount(id){ return DB.accounts.filter(function(a){return a.id===id;})[0] || {name:'—'}; }
-function getCat(id){ return DB.categories.filter(function(c){return c.id===id;})[0] || {name:'—',icon:'📁',type:'expense'}; }
+function getAccount(id){ var r = DB.accounts.filter(function(a){return a.id===id;}); return r[0] || {name:'—'}; }
+function getCat(id){ var r = DB.categories.filter(function(c){return c.id===id;}); return r[0] || {name:'—',icon:'📁',type:'expense'}; }
 
-/* ===== ТЕКУЩИЙ МЕСЯЦ ===== */
 var curMonth = todayISO().slice(0,7);
 function shiftMonth(delta){
   var p = curMonth.split('-');
-  var d = new Date(parseInt(p[0]), parseInt(p[1])-1 + delta, 1);
+  var d = new Date(parseInt(p[0]), parseInt(p[1])-1+delta, 1);
   curMonth = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
   renderHome();
 }
 function monthLabelRu(mk){
   var p = mk.split('-');
-  return new Date(parseInt(p[0]), parseInt(p[1])-1).toLocaleDateString('ru-RU',{month:'long',year:'numeric'});
+  var s = new Date(parseInt(p[0]), parseInt(p[1])-1).toLocaleDateString('ru-RU',{month:'long',year:'numeric'});
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 function dayLabelRu(iso){
-  var d = new Date(iso + 'T00:00:00');
   var today = todayISO();
   var yest = new Date(Date.now()-86400000).toISOString().slice(0,10);
   if(iso === today) return 'Сегодня';
   if(iso === yest) return 'Вчера';
+  var d = new Date(iso + 'T00:00:00');
   return d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',weekday:'short'});
 }
 
-/* ===== ГЛАВНЫЙ ЭКРАН ===== */
 function renderHome(){
-  $('#monthLabel').textContent = monthLabelRu(curMonth).replace(/^\w/, function(c){return c.toUpperCase();});
+  $('#monthLabel').textContent = monthLabelRu(curMonth);
   var mOps = DB.operations.filter(function(o){ return monthKey(o.date) === curMonth; });
   var inc = mOps.filter(function(o){return o.type==='income';}).reduce(function(s,o){return s+o.amount;},0);
   var exp = mOps.filter(function(o){return o.type==='expense';}).reduce(function(s,o){return s+o.amount;},0);
   var net = inc - exp;
 
   var big = $('#bigSum');
-  big.innerHTML = (net>=0?'':'−') + Math.abs(net).toLocaleString('ru-RU',{maximumFractionDigits:2}) + '<span class="cur">' + DB.currency + '</span>';
+  big.innerHTML = (net<0?'−':'') + Math.abs(net).toLocaleString('ru-RU',{maximumFractionDigits:2}) + '<span class="cur">' + DB.currency + '</span>';
   big.className = 'big-sum' + (net<0?' neg':'');
 
   $('#inSum').textContent = fmt(inc);
   $('#outSum').textContent = fmt(exp);
 
-  // Группировка по дням
   var byDay = {};
   mOps.forEach(function(o){
     if(!byDay[o.date]) byDay[o.date] = [];
@@ -448,7 +416,6 @@ function renderHome(){
   $('#opsByDay').innerHTML = html;
 }
 
-/* ===== ТАБЫ ===== */
 function switchTab(name){
   document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
   document.querySelectorAll('.tabbar .tb').forEach(function(t){t.classList.remove('active');});
@@ -462,7 +429,6 @@ function switchTab(name){
   if(name === 'more') renderMore();
 }
 
-/* ===== АНАЛИТИКА ===== */
 function renderStats(){
   var ops = DB.operations.filter(function(o){ return o.type==='expense' && monthKey(o.date)===curMonth; });
   var byCat = {};
@@ -504,7 +470,6 @@ function renderStats(){
   + '📅 Операций: <b>' + ops.length + '</b>';
 }
 
-/* ===== БЮДЖЕТ ===== */
 function renderBudget(){
   var spent = {};
   DB.operations.filter(function(o){return o.type==='expense' && monthKey(o.date)===curMonth;})
@@ -542,7 +507,6 @@ function saveBudget(){
   save(); closeModal('budgetModal'); renderBudget();
 }
 
-/* ===== ЕЩЁ ===== */
 function accountBalance(accId){
   var acc = DB.accounts.filter(function(a){return a.id===accId;})[0];
   if(!acc) return 0;
@@ -575,4 +539,99 @@ function openAccountEdit(){ $('#accName').value=''; $('#accBalance').value='0'; 
 function saveAccount(){
   var name = $('#accName').value.trim();
   if(!name) return alert('Введи название');
-  DB.accounts.push({id:'a'+Date.now
+  DB.accounts.push({id:'a'+Date.now(), name:name, balance:parseFloat($('#accBalance').value)||0});
+  save(); closeModal('accountModal'); renderMore();
+}
+
+function openOpEdit(id){
+  $('#opType').value='expense';
+  $('#opAmount').value='';
+  $('#opDate').value = todayISO();
+  $('#opNote').value='';
+  $('#opId').value='';
+  $('#opTitle').textContent='Новая операция';
+  $('#opDelete').classList.add('hidden');
+  fillSelects();
+  if(id){
+    var o = DB.operations.filter(function(x){return x.id===id;})[0];
+    if(!o) return;
+    $('#opId').value = o.id;
+    $('#opType').value = o.type;
+    $('#opAmount').value = o.amount;
+    $('#opDate').value = o.date;
+    $('#opNote').value = o.note||'';
+    $('#opTitle').textContent = 'Операция';
+    $('#opDelete').classList.remove('hidden');
+    fillSelects();
+    $('#opCat').value = o.catId;
+    $('#opAccount').value = o.accountId;
+  }
+  $('#opModal').classList.add('show');
+}
+function fillSelects(){
+  var type = $('#opType').value;
+  $('#opCat').innerHTML = DB.categories.filter(function(c){return c.type===type;}).map(function(c){
+    return '<option value="' + c.id + '">' + c.icon + ' ' + c.name + '</option>';
+  }).join('');
+  $('#opAccount').innerHTML = DB.accounts.map(function(a){
+    return '<option value="' + a.id + '">' + a.name + '</option>';
+  }).join('');
+}
+$('#opType').onchange = fillSelects;
+
+function saveOp(){
+  var amt = parseFloat($('#opAmount').value);
+  if(!amt || amt<=0) return alert('Введи корректную сумму');
+  var id = $('#opId').value;
+  var data = {
+    type: $('#opType').value,
+    amount: amt,
+    catId: $('#opCat').value,
+    accountId: $('#opAccount').value,
+    date: $('#opDate').value || todayISO(),
+    note: $('#opNote').value.trim()
+  };
+  if(id){
+    var i = -1;
+    for(var k=0;k<DB.operations.length;k++){ if(DB.operations[k].id===id){ i=k; break; } }
+    if(i>=0) DB.operations[i] = Object.assign(DB.operations[i], data);
+  } else {
+    DB.operations.push(Object.assign({id:'o'+Date.now()}, data));
+  }
+  save(); closeModal('opModal'); switchTab('home');
+}
+function deleteOp(){
+  var id = $('#opId').value;
+  if(!id) return;
+  if(!confirm('Удалить операцию?')) return;
+  DB.operations = DB.operations.filter(function(o){return o.id!==id;});
+  save(); closeModal('opModal'); switchTab('home');
+}
+function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal').forEach(function(m){
+  m.addEventListener('click', function(e){ if(e.target===m) m.classList.remove('show'); });
+});
+
+function exportData(){
+  var blob = new Blob([JSON.stringify(DB,null,2)], {type:'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'finance-backup-' + todayISO() + '.json';
+  a.click();
+}
+function importData(e){
+  var f = e.target.files[0]; if(!f) return;
+  var r = new FileReader();
+  r.onload = function(){
+    try{
+      DB = Object.assign(DB, JSON.parse(r.result));
+      save(); alert('Импортировано'); location.reload();
+    }catch(err){ alert('Ошибка файла'); }
+  };
+  r.readAsText(f);
+}
+
+renderHome();
+</script>
+</body>
+</html>
